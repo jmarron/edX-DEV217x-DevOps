@@ -30,6 +30,32 @@ public class CatalogControllerTest
     }
 
     @Test
+    public void testAddCatalogItems() throws Exception
+    {
+        ResponseEntity<List<CatalogItem>> oldItems = controller.getCatalogItems();
+        int sizeBeforeAdds = 0;
+        if (oldItems.getBody() != null)
+        {
+            sizeBeforeAdds = oldItems.getBody().size();
+        }
+
+        ResponseEntity<CatalogItem> response = 
+                controller.addCatalogItem(new CatalogItem("ACC-0123", "Storage", 15.75, 5, 2));
+        assertNotNull(response);
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+
+        response = 
+                controller.addCatalogItem(new CatalogItem("ACC-0124", "Storage", 11.25, 7, 6));
+        assertNotNull(response);
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+
+        ResponseEntity<List<CatalogItem>> newItems = controller.getCatalogItems();
+        int sizeAfterAdds = newItems.getBody().size();
+
+        assertEquals(sizeBeforeAdds + 2, sizeAfterAdds);
+    }
+    
+    @Test
     public void testAddCatalogItem() throws Exception
     {
         ResponseEntity response =
