@@ -33,7 +33,7 @@ public class CatalogControllerTest
     public void testAddCatalogItems() throws Exception
     {
         ResponseEntity<List<CatalogItem>> oldItems = controller.getCatalogItems();
-        int sizeBeforeAdds = 0;
+        int sizeBeforeAdds = 0; 
         if (oldItems.getBody() != null)
         {
             sizeBeforeAdds = oldItems.getBody().size();
