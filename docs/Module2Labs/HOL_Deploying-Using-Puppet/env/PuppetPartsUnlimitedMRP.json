@@ -11,6 +11,7 @@
     },
     "pmAdminPassword": {
       "type": "securestring",
+	  "minLength": 12,
       "metadata": {
         "description": "Password for the Puppet Master Virtual Machine."
       }
@@ -37,6 +38,7 @@
     },
     "mrpAdminPassword": {
       "type": "securestring",
+	  "minLength": 12,
       "metadata": {
         "description": "Password for the MRP Virtual Machine."
       }
@@ -52,11 +54,11 @@
   "variables": {
     "pmImagePublisher": "Canonical",
     "pmImageOffer": "UbuntuServer",
-    "pmImageSku": "12.04.4-LTS",
-    "pmVersion": "2016.2.0",
+    "pmImageSku": "12.04.5-LTS",
+    "pmVersion": "latest",
     "mrpImagePublisher": "Canonical",
     "mrpImageOffer": "UbuntuServer",
-    "mrpImageSku": "12.04.4-LTS",
+    "mrpImageSku": "12.04.5-LTS",
     "mrpOSDiskName": "mrpOsdisk",
     "pmOSDiskName": "pupperMasterOsdisk",
     "pmNicName": "puppetNic",
