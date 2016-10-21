@@ -34,7 +34,7 @@ public class CatalogControllerTest
     {
         ResponseEntity<List<CatalogItem>> oldItems = controller.getCatalogItems();
         int sizeBeforeAdds = 0; 
-        if (oldItems.getBody() != null)
+        if (oldItems.getBody() != null) 
         {
             sizeBeforeAdds = oldItems.getBody().size();
         }
